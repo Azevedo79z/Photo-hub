@@ -24,6 +24,18 @@ import "../../styles/global.css";
       .photo-meta b{font-size:.7rem;letter-spacing:.16em;color:#71c8ff}
       .photo-meta small{font-size:.72rem;opacity:.8;overflow-wrap:anywhere}
       .gallery-note{color:#91a2b8;font-size:.85rem;padding:0 0 34px}
+      .photo-viewer{position:fixed;inset:0;z-index:1000;background:rgba(2,6,14,.94);backdrop-filter:blur(18px);display:none;align-items:center;justify-content:center;padding:24px}
+      .photo-viewer.is-open{display:flex}
+      .viewer-panel{width:min(1100px,100%);height:min(90vh,850px);display:grid;grid-template-rows:auto 1fr auto;gap:14px}
+      .viewer-top,.viewer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#dcecff}
+      .viewer-top strong{font-size:.78rem;letter-spacing:.14em;color:#75caff}
+      .viewer-image-wrap{min-height:0;display:flex;align-items:center;justify-content:center}
+      .viewer-image{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 20px 80px #0009}
+      .viewer-btn,.viewer-drive{border:1px solid #34506c;background:#101d2d;color:#eaf5ff;border-radius:999px;padding:10px 16px;font:inherit;cursor:pointer;text-decoration:none}
+      .viewer-btn:hover,.viewer-drive:hover{border-color:#63c3ff;background:#172b40}
+      .viewer-close{font-size:1.3rem;line-height:1;padding:8px 13px}
+      .viewer-caption{font-size:.8rem;color:#a9bbcf;overflow-wrap:anywhere}
+      @media(max-width:600px){.photo-viewer{padding:12px}.viewer-panel{height:92vh}.viewer-bottom{flex-wrap:wrap}.viewer-caption{width:100%;order:3}.viewer-btn,.viewer-drive{padding:9px 12px;font-size:.82rem}}
       @media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery-shell{width:min(100% - 24px,1180px)}.photo{border-radius:12px;min-height:180px}.photo-meta{left:10px;right:10px;bottom:10px}.photo-meta small{font-size:.62rem}}
       @media(max-width:420px){.gallery-grid{grid-template-columns:1fr 1fr}.photo{aspect-ratio:3/4}}
     </style>
@@ -119,8 +131,61 @@ import "../../styles/global.css";
         <span class="photo-meta"><b>FOTO 19</b><small>IMG_20261110_215546_693.jpg</small></span>
       </a>
       </section>
-      <p class="gallery-note">19 fotografias • Selecione uma imagem para abrir o arquivo original no Google Drive.</p>
+      <p class="gallery-note">19 fotografias • Toque em uma imagem para ampliar; use o botão para abrir ou baixar o original no Google Drive.</p>
     </main>
+    <div class="photo-viewer" id="photoViewer" role="dialog" aria-modal="true" aria-label="Visualização ampliada da fotografia">
+      <div class="viewer-panel">
+        <div class="viewer-top"><strong id="viewerCount">FOTO 01 / 19</strong><button class="viewer-btn viewer-close" id="viewerClose" type="button" aria-label="Fechar">×</button></div>
+        <div class="viewer-image-wrap"><img class="viewer-image" id="viewerImage" alt="Fotografia ampliada" /></div>
+        <div class="viewer-bottom"><button class="viewer-btn" id="viewerPrev" type="button">← Anterior</button><span class="viewer-caption" id="viewerCaption"></span><a class="viewer-drive" id="viewerDrive" href="#" target="_blank" rel="noopener noreferrer">Abrir / baixar original ↗</a><button class="viewer-btn" id="viewerNext" type="button">Próxima →</button></div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const cards = Array.from(document.querySelectorAll(".gallery-grid .photo"));
+        const viewer = document.getElementById("photoViewer");
+        const image = document.getElementById("viewerImage");
+        const count = document.getElementById("viewerCount");
+        const caption = document.getElementById("viewerCaption");
+        const drive = document.getElementById("viewerDrive");
+        let active = 0;
+        let previousFocus = null;
+        const show = (index) => {
+          active = (index + cards.length) % cards.length;
+          const card = cards[active];
+          const thumb = card.querySelector("img");
+          image.src = thumb.src;
+          image.alt = thumb.alt;
+          caption.textContent = card.querySelector("small")?.textContent || thumb.alt;
+          count.textContent = "FOTO " + String(active + 1).padStart(2, "0") + " / " + cards.length;
+          drive.href = card.href;
+          viewer.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+          document.getElementById("viewerClose").focus();
+        };
+        const close = () => {
+          viewer.classList.remove("is-open");
+          document.body.style.overflow = "";
+          image.removeAttribute("src");
+          previousFocus?.focus();
+        };
+        cards.forEach((card, index) => card.addEventListener("click", (event) => {
+          event.preventDefault();
+          previousFocus = card;
+          show(index);
+        }));
+        document.getElementById("viewerClose").addEventListener("click", close);
+        document.getElementById("viewerPrev").addEventListener("click", () => show(active - 1));
+        document.getElementById("viewerNext").addEventListener("click", () => show(active + 1));
+        viewer.addEventListener("click", (event) => { if (event.target === viewer) close(); });
+        document.addEventListener("keydown", (event) => {
+          if (!viewer.classList.contains("is-open")) return;
+          if (event.key === "Escape") close();
+          if (event.key === "ArrowLeft") show(active - 1);
+          if (event.key === "ArrowRight") show(active + 1);
+        });
+      })();
+    </script>
     <footer class="footer shell"><span>PHOTO HUB <b>© 2026</b></span><span>MEMORIES, REIMAGINED.</span></footer>
   </body>
 </html>
