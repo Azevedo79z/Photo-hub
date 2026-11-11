@@ -1,0 +1,126 @@
+---
+import "../../styles/global.css";
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070b13" />
+    <meta name="description" content="Galeria de fotografias Josy — PHOTO HUB." />
+    <title>Galeria Josy — PHOTO HUB</title>
+    <style>
+      .gallery-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+      .gallery-head{padding:76px 0 34px}
+      .gallery-head h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;letter-spacing:-.055em;margin:18px 0}
+      .gallery-head h1 span{color:#54b9ff}
+      .gallery-head p{color:#9baabd;max-width:620px;line-height:1.7}
+      .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:70px}
+      .photo{display:block;position:relative;overflow:hidden;border:1px solid #26364a;border-radius:18px;background:#101a29;min-height:220px;aspect-ratio:4/5;text-decoration:none}
+      .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+      .photo:hover img{transform:scale(1.045)}
+      .photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(4,9,18,.92))}
+      .photo-meta{position:absolute;z-index:1;left:16px;right:16px;bottom:15px;display:flex;flex-direction:column;gap:5px;color:white}
+      .photo-meta b{font-size:.7rem;letter-spacing:.16em;color:#71c8ff}
+      .photo-meta small{font-size:.72rem;opacity:.8;overflow-wrap:anywhere}
+      .gallery-note{color:#91a2b8;font-size:.85rem;padding:0 0 34px}
+      @media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery-shell{width:min(100% - 24px,1180px)}.photo{border-radius:12px;min-height:180px}.photo-meta{left:10px;right:10px;bottom:10px}.photo-meta small{font-size:.62rem}}
+      @media(max-width:420px){.gallery-grid{grid-template-columns:1fr 1fr}.photo{aspect-ratio:3/4}}
+    </style>
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+    <header class="topbar shell">
+      <a class="brand" href="/" aria-label="Photo Hub início"><span class="brand-mark">P<span>H</span></span><span class="brand-name">PHOTO<span>HUB</span><small>INTELLIGENT PHOTOGRAPHY</small></span></a>
+      <nav aria-label="Navegação principal"><a class="nav-link" href="/">Início</a><a class="nav-link active" href="/galeria">Galeria</a></nav>
+      <a class="access-link" href="/">Voltar ao início <span>↗</span></a>
+    </header>
+    <main class="gallery-shell">
+      <section class="gallery-head">
+        <div class="eyebrow"><i></i> ACERVO FOTOGRÁFICO / JOSY</div>
+        <h1>Momentos que<br/><span>merecem ficar.</span></h1>
+        <p>Uma coleção especial de fotografias, reunida em um só lugar para visualizar e compartilhar.</p>
+      </section>
+      <section class="gallery-grid" aria-label="Fotografias do acervo Josy">
+      <a class="photo" href="https://drive.google.com/file/d/1dpYZDbY106cx6Q5bvPk-fqJOERjGCdwb/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1dpYZDbY106cx6Q5bvPk-fqJOERjGCdwb&sz=w1600" alt="Fotografia 1 do acervo Josy" loading="eager" />
+        <span class="photo-meta"><b>FOTO 01</b><small>IMG_20261110_213637_859.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1kcPgM4i9x5m9kN3xPo5m6ts6FiImrZGQ/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1kcPgM4i9x5m9kN3xPo5m6ts6FiImrZGQ&sz=w1600" alt="Fotografia 2 do acervo Josy" loading="eager" />
+        <span class="photo-meta"><b>FOTO 02</b><small>IMG_20261110_213936_109.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1AksapM2HRc0TzE14kRxO5oCgVDJ28KX8/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1AksapM2HRc0TzE14kRxO5oCgVDJ28KX8&sz=w1600" alt="Fotografia 3 do acervo Josy" loading="eager" />
+        <span class="photo-meta"><b>FOTO 03</b><small>IMG_20261110_213949_623.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1PtI-NCNY4pct2UeTpr8Uwzrm5nFl5jOz/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1PtI-NCNY4pct2UeTpr8Uwzrm5nFl5jOz&sz=w1600" alt="Fotografia 4 do acervo Josy" loading="eager" />
+        <span class="photo-meta"><b>FOTO 04</b><small>IMG_20261110_214135_235.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1t8NkwydzM1McSeVZlYUQADAiL7nuTLNB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1t8NkwydzM1McSeVZlYUQADAiL7nuTLNB&sz=w1600" alt="Fotografia 5 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 05</b><small>IMG_20261110_214143_758.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1IRMPAPWntUUHP0Jo3LcHqfNBqBYR2_Bp/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1IRMPAPWntUUHP0Jo3LcHqfNBqBYR2_Bp&sz=w1600" alt="Fotografia 6 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 06</b><small>IMG_20261110_214522_084.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1YA68Xi8GUBUWTqAYEjLwgq_Cl1CmY0Iw/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1YA68Xi8GUBUWTqAYEjLwgq_Cl1CmY0Iw&sz=w1600" alt="Fotografia 7 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 07</b><small>IMG_20261110_214532_408.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1Wp96-ovrBnoaxOulGkNMH5Get-vLnbKp/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1Wp96-ovrBnoaxOulGkNMH5Get-vLnbKp&sz=w1600" alt="Fotografia 8 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 08</b><small>IMG_20261110_214535_452.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1OoUPBQeNAgTFzMb7RRq30lI7Q0jkGZum/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1OoUPBQeNAgTFzMb7RRq30lI7Q0jkGZum&sz=w1600" alt="Fotografia 9 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 09</b><small>IMG_20261110_214555_068.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/12KkBcwe4U_jjW-bU27F9hVPEKLph8qFz/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=12KkBcwe4U_jjW-bU27F9hVPEKLph8qFz&sz=w1600" alt="Fotografia 10 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 10</b><small>IMG_20261110_214733_022.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1eVrPJTzv7vvfY104fcZ3js3E0B75LTqv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1eVrPJTzv7vvfY104fcZ3js3E0B75LTqv&sz=w1600" alt="Fotografia 11 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 11</b><small>IMG_20261110_214955_105.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1r2cD1PJH5HSLTP_r_o9k9Ssae7zLgFAN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1r2cD1PJH5HSLTP_r_o9k9Ssae7zLgFAN&sz=w1600" alt="Fotografia 12 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 12</b><small>IMG_20261110_215001_017.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1Y4StnO00nJ5GM-pXX7wVdqTlb235oEnF/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1Y4StnO00nJ5GM-pXX7wVdqTlb235oEnF&sz=w1600" alt="Fotografia 13 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 13</b><small>IMG_20261110_215008_832.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1QwAUjjNvv4jduN2dUahoRUd7CX5VF6Vg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1QwAUjjNvv4jduN2dUahoRUd7CX5VF6Vg&sz=w1600" alt="Fotografia 14 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 14</b><small>IMG_20261110_215105_417.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1bOmPgRHUn21BPwIagSzYPnV5x5lq9S9X/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1bOmPgRHUn21BPwIagSzYPnV5x5lq9S9X&sz=w1600" alt="Fotografia 15 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 15</b><small>IMG_20261110_215330_696.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1QYBVl39WFCvZ7w1k7J9lkOrsy1jXNC5-/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1QYBVl39WFCvZ7w1k7J9lkOrsy1jXNC5-&sz=w1600" alt="Fotografia 16 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 16</b><small>IMG_20261110_215343_424.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/136HSc4axxZE69rsjmOsaj-JvqnLAqvBP/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=136HSc4axxZE69rsjmOsaj-JvqnLAqvBP&sz=w1600" alt="Fotografia 17 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 17</b><small>IMG_20261110_215402_099.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1QMg4OgrHgKhRSyFbD50OReXDesMWufAW/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1QMg4OgrHgKhRSyFbD50OReXDesMWufAW&sz=w1600" alt="Fotografia 18 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 18</b><small>IMG_20261110_215407_622.jpg</small></span>
+      </a>
+      <a class="photo" href="https://drive.google.com/file/d/1Tk-Nf9hR_-ByGe8V_ITg4SWpTsllqNgA/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <img src="https://drive.google.com/thumbnail?id=1Tk-Nf9hR_-ByGe8V_ITg4SWpTsllqNgA&sz=w1600" alt="Fotografia 19 do acervo Josy" loading="lazy" />
+        <span class="photo-meta"><b>FOTO 19</b><small>IMG_20261110_215546_693.jpg</small></span>
+      </a>
+      </section>
+      <p class="gallery-note">19 fotografias • Selecione uma imagem para abrir o arquivo original no Google Drive.</p>
+    </main>
+    <footer class="footer shell"><span>PHOTO HUB <b>© 2026</b></span><span>MEMORIES, REIMAGINED.</span></footer>
+  </body>
+</html>
