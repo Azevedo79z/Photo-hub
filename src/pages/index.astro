@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+const stats = [
+  { value: "01", label: "ACERVO CONECTADO", detail: "Google Drive" },
+  { value: "∞", label: "MEMÓRIAS", detail: "Organização inteligente" },
+  { value: "24/7", label: "ACESSO", detail: "Em qualquer dispositivo" }
+];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070b13" />
+    <meta name="description" content="Photo Hub — uma experiência inteligente para descobrir e compartilhar fotografias." />
+    <title>PHOTO HUB — Intelligent Photography Experience</title>
+  </head>
+  <body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <header class="topbar shell">
+      <a class="brand" href="/" aria-label="Photo Hub início">
+        <span class="brand-mark">P<span>H</span></span>
+        <span class="brand-name">PHOTO<span>HUB</span><small>INTELLIGENT PHOTOGRAPHY</small></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a class="nav-link active" href="/">Início</a>
+        <a class="nav-link" href="/galeria">Galeria</a>
+        <a class="nav-link" href="#sobre">Sobre</a>
+      </nav>
+      <a class="access-link" href="/galeria">Explorar acervo <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i> EXPERIÊNCIA FOTOGRÁFICA INTELIGENTE</div>
+          <h1>Suas memórias.<br /><span>Em outra dimensão.</span></h1>
+          <p>Um espaço pensado para descobrir, reviver e compartilhar cada momento. Tudo organizado em uma experiência visual extraordinária.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="/galeria">Explorar fotografias <span>→</span></a>
+            <a class="text-action" href="#sobre">Conheça o Photo Hub <span>↓</span></a>
+          </div>
+          <div class="hero-footnote"><span class="pulse"></span> UMA NOVA FORMA DE VIVER SUAS FOTOGRAFIAS</div>
+        </div>
+
+        <div class="visual-stage" aria-label="Prévia visual da galeria">
+          <div class="stage-orbit orbit-one"></div>
+          <div class="stage-orbit orbit-two"></div>
+          <div class="stage-label"><span>PH / VISUAL ENGINE</span><b>PREVIEW 001</b></div>
+          <div class="photo-card photo-main">
+            <div class="photo-scene scene-one"><span class="sun"></span><span class="ridge ridge-back"></span><span class="ridge ridge-front"></span></div>
+            <div class="photo-caption"><span>01 / MOMENTS</span><b>Beyond the ordinary</b></div>
+          </div>
+          <div class="photo-card photo-small photo-small-a">
+            <div class="photo-scene scene-two"><span class="glow-ball"></span><span class="silhouette"></span></div>
+            <div class="mini-caption">02 / STORIES</div>
+          </div>
+          <div class="photo-card photo-small photo-small-b">
+            <div class="photo-scene scene-three"><span class="light-beam"></span></div>
+            <div class="mini-caption">03 / DETAILS</div>
+          </div>
+          <div class="floating-chip"><span class="chip-dot"></span><span>VISUAL ARCHIVE</span><b>ONLINE</b></div>
+          <div class="corner-code">PH—2026<br />MEMORY SYSTEM</div>
+        </div>
+      </section>
+
+      <section class="stats shell" aria-label="Destaques do Photo Hub">
+        {stats.map((item) => <div class="stat"><strong>{item.value}</strong><div><b>{item.label}</b><span>{item.detail}</span></div></div>)}
+      </section>
+
+      <section class="intro shell" id="sobre">
+        <div>
+          <div class="eyebrow"><i></i> MAIS QUE UMA GALERIA</div>
+          <h2>Organização inteligente.<br /><span>Experiência memorável.</span></h2>
+        </div>
+        <p>O Photo Hub está sendo preparado para transformar um acervo de arquivos em uma galeria elegante, rápida e simples de explorar — mantendo o controle do conteúdo com quem administra.</p>
+      </section>
+      <section class="feature-grid shell">
+        <article class="feature"><span class="feature-icon">▦</span><b>Álbuns inteligentes</b><p>Fotografias agrupadas por evento, data e coleção.</p></article>
+        <article class="feature"><span class="feature-icon">⌕</span><b>Busca intuitiva</b><p>Encontre momentos sem navegar por dezenas de pastas.</p></article>
+        <article class="feature"><span class="feature-icon">↗</span><b>Compartilhamento</b><p>Links diretos para galerias publicadas e autorizadas.</p></article>
+      </section>
+    </main>
+    <footer class="footer shell"><span>PHOTO HUB <b>© 2026</b></span><span>MEMORIES, REIMAGINED.</span></footer>
+  </body>
+</html>
